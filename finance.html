@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Financing Options | Car Sale Premium</title>
+    <meta name="description"
+        content="Explore flexible premium vehicle financing options at Car Sale Premium. Use our loan calculator to estimate your monthly payments." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            background: #ea2a33;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            background: #ea2a33;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
+
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="closeMobileMenu()"></div>
+    <!-- Mobile Sidebar Drawer -->
+    <aside id="mobile-drawer"
+        class="fixed top-0 left-0 h-full w-72 bg-white dark:bg-background-dark z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="flex items-center justify-between p-5 border-b border-primary/10">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-primary p-1 rounded-lg">
+                    <span class="material-icons text-white text-xl">directions_car</span>
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight uppercase leading-none">Car Sale Premium</span>
+                    <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                </div>
+            </a>
+            <button onclick="closeMobileMenu()"
+                class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons text-slate-600 dark:text-slate-300">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col p-5 gap-1 flex-1">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="inventory.html">
+                <span class="material-icons text-sm">garage</span>Inventory
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="sellVehicle.html">
+                <span class="material-icons text-sm">sell</span>Sell Your Car
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/5 text-primary font-medium transition-colors"
+                href="finance.html">
+                <span class="material-icons text-sm">account_balance</span>Financing
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="about.html">
+                <span class="material-icons text-sm">info</span>About Us
+            </a>
+        </nav>
+        <div class="p-5 border-t border-primary/10">
+            <button
+                class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                <span class="material-icons text-sm">calendar_month</span>
+                <span>Book Viewing</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Navigation -->
+    <header
+        class="sticky top-0 z-30 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-primary/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="bg-primary p-1 rounded-lg">
+                        <span class="material-icons text-white text-xl">directions_car</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-xl font-bold tracking-tight uppercase leading-none">Car Sale Premium
+                            Select</h1>
+                        <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="inventory.html">Inventory</a>
+                    <a class="hover:text-primary transition-colors" href="sellVehicle.html">Sell Your Car</a>
+                    <a class="text-primary font-semibold" href="finance.html">Financing</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About Us</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        <span class="material-icons text-sm">calendar_month</span>
+                        <span>Book Viewing</span>
+                    </button>
+                    <button onclick="openMobileMenu()"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Open menu">
+                        <span class="material-icons text-slate-700 dark:text-slate-200">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function openMobileMenu() {
+            document.getElementById('mobile-drawer').classList.remove('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-drawer').classList.add('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+
+    <!-- Hero Section -->
+    <section class="relative bg-slate-900 py-20 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbCfrKlSkCP2bmaBl1oEc3X6dQyl2Rd_sCGNuPTqotxBy-HiI3ATZViDZS7OO5OpNyU7NanoHCBvKehjpZPFPUGEsFyXFDzZPf340jrEk7OqH1sen00QLGyad_D_uBgzOSVvePsqYs0wR6S-_M0DNHN_gOfy_jvPIg2SNmhjy-6ds8aMTPGoOGqFDlJgCMAVmtzFd617WlmhP8MvqAeqi0C_rmYM3pPeTDNXtIykhFLyHYyPz2ucSwkA7Sqgx7C2r3-dSwK54Gj9g"
+                class="w-full h-full object-cover" alt="Premium vehicle" />
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 backdrop-blur-sm mb-6">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary">Tailored Finance Solutions</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+                Drive Now.<br />
+                <span class="text-primary">Pay Your Way.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                Access flexible, competitive financing packages designed exclusively for premium vehicle buyers. Fast
+                approvals, transparent terms, and no hidden fees.
+            </p>
+        </div>
+    </section>
+
+    <!-- Finance Options -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl font-bold mb-4">Choose Your Finance Plan</h2>
+            <div class="h-1 w-20 bg-primary rounded-full mx-auto mb-4"></div>
+            <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">We work with leading financial institutions
+                to offer you the best rates and most flexible repayment terms on the market.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Plan 1 -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-8 hover:shadow-xl hover:border-primary/30 transition-all">
+                <div class="w-14 h-14 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-6">
+                    <span class="material-icons text-primary text-2xl">directions_car</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Hire Purchase (HP)</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">A straightforward way to
+                    spread the cost of your vehicle over a fixed term. Own your car outright at the end of the
+                    agreement.</p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Fixed monthly payments</li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>12–72 month terms</li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Deposit from 10%</li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Full ownership at term end</li>
+                </ul>
+                <a href="#calculator"
+                    class="block text-center w-full border-2 border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all">Calculate
+                    Payment</a>
+            </div>
+            <!-- Plan 2 — Featured -->
+            <div class="bg-slate-900 rounded-2xl border border-primary/50 p-8 relative shadow-2xl shadow-primary/10">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span
+                        class="bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most
+                        Popular</span>
+                </div>
+                <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                    <span class="material-icons text-primary text-2xl">account_balance</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Personal Contract Purchase (PCP)</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">Lower monthly payments with the flexibility to
+                    own, return, or part-exchange the vehicle at the end of the term.</p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                            class="material-icons text-primary text-base">check</span>Lower monthly payments</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                            class="material-icons text-primary text-base">check</span>Guaranteed future value</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                            class="material-icons text-primary text-base">check</span>Flexible end-of-term options</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-300"><span
+                            class="material-icons text-primary text-base">check</span>24–48 month terms</li>
+                </ul>
+                <a href="#calculator"
+                    class="block text-center w-full bg-primary text-white font-bold py-3 rounded-xl hover:bg-primary/90 transition-all">Calculate
+                    Payment</a>
+            </div>
+            <!-- Plan 3 -->
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-8 hover:shadow-xl hover:border-primary/30 transition-all">
+                <div class="w-14 h-14 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center mb-6">
+                    <span class="material-icons text-primary text-2xl">currency_exchange</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Lease Finance</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 leading-relaxed">Access a premium vehicle for
+                    a fixed monthly fee. No ownership needed — perfect for those who prefer to refresh their vehicle
+                    regularly.</p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Lowest monthly cost</li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Maintenance packages available
+                    </li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>No depreciation risk</li>
+                    <li class="flex items-center gap-3 text-sm"><span
+                            class="material-icons text-primary text-base">check</span>Drive a new car every 2–4 years
+                    </li>
+                </ul>
+                <a href="#calculator"
+                    class="block text-center w-full border-2 border-primary text-primary font-bold py-3 rounded-xl hover:bg-primary hover:text-white transition-all">Calculate
+                    Payment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator -->
+    <section id="calculator" class="bg-slate-900 py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Finance Calculator</h2>
+                <div class="h-1 w-20 bg-primary rounded-full mx-auto mb-4"></div>
+                <p class="text-slate-400 max-w-lg mx-auto">Estimate your monthly repayments instantly. All figures are
+                    indicative — speak to our team for a personalised quote.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <!-- Sliders -->
+                    <div class="space-y-8">
+                        <!-- Vehicle Price -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold uppercase tracking-wider text-slate-500">Vehicle
+                                    Price</label>
+                                <span id="price-display" class="text-lg font-extrabold text-primary">$80,000</span>
+                            </div>
+                            <input id="price-slider" type="range" min="20000" max="300000" step="1000" value="80000"
+                                class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none accent-primary cursor-pointer"
+                                oninput="updateCalc()" />
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>$20k</span><span>$300k</span>
+                            </div>
+                        </div>
+                        <!-- Deposit -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold uppercase tracking-wider text-slate-500">Deposit</label>
+                                <span id="deposit-display" class="text-lg font-extrabold text-primary">$16,000</span>
+                            </div>
+                            <input id="deposit-slider" type="range" min="0" max="50" step="1" value="20"
+                                class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none accent-primary cursor-pointer"
+                                oninput="updateCalc()" />
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>0%</span><span>50%</span>
+                            </div>
+                        </div>
+                        <!-- Term -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold uppercase tracking-wider text-slate-500">Loan
+                                    Term</label>
+                                <span id="term-display" class="text-lg font-extrabold text-primary">48 months</span>
+                            </div>
+                            <input id="term-slider" type="range" min="12" max="72" step="12" value="48"
+                                class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none accent-primary cursor-pointer"
+                                oninput="updateCalc()" />
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>12 mo</span><span>72 mo</span>
+                            </div>
+                        </div>
+                        <!-- Interest Rate -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-bold uppercase tracking-wider text-slate-500">Interest Rate
+                                    (APR)</label>
+                                <span id="rate-display" class="text-lg font-extrabold text-primary">6.9%</span>
+                            </div>
+                            <input id="rate-slider" type="range" min="3" max="15" step="0.1" value="6.9"
+                                class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none accent-primary cursor-pointer"
+                                oninput="updateCalc()" />
+                            <div class="flex justify-between text-xs text-slate-400 mt-1">
+                                <span>3%</span><span>15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Results -->
+                    <div
+                        class="bg-slate-50 dark:bg-slate-900 rounded-2xl p-8 space-y-6 border border-slate-200 dark:border-slate-700">
+                        <div class="text-center">
+                            <p class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-2">Estimated Monthly
+                                Payment</p>
+                            <p id="monthly-payment" class="text-5xl font-extrabold text-primary">$1,530</p>
+                            <p class="text-slate-500 text-xs mt-2">Indicative figure only</p>
+                        </div>
+                        <div class="space-y-4 border-t border-slate-200 dark:border-slate-700 pt-6">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Loan Amount</span>
+                                <span id="loan-amount" class="font-bold">$64,000</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Total Interest</span>
+                                <span id="total-interest" class="font-bold">$9,440</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-slate-500">Total Repayable</span>
+                                <span id="total-repayable" class="font-bold">$73,440</span>
+                            </div>
+                        </div>
+                        <a href="sellVehicle.html"
+                            class="block w-full text-center bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                            Get My Personalised Quote
+                        </a>
+                        <p class="text-xs text-slate-400 text-center">Subject to status. Terms & conditions apply.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Finance With Us -->
+    <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Why Finance With Us?</h2>
+                <div class="h-1 w-20 bg-primary rounded-full mb-8"></div>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-primary">speed</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Fast Approval — Under 24 Hours</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">No lengthy waiting. Our finance
+                                partners provide decisions within 24 hours so you can get behind the wheel faster.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-primary">percent</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Competitive Rates</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">We work with a panel of 20+ premium
+                                lenders to source the most competitive APR available for your profile.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-primary">visibility</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Complete Transparency</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">No hidden fees, no small-print
+                                surprises. Every figure is clearly outlined before you sign anything.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-5">
+                        <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="material-icons text-primary">support_agent</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">Dedicated Finance Advisor</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Your personal finance advisor will
+                                guide you from application to completion, available via phone or WhatsApp.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-8 shadow-xl">
+                <h3 class="text-2xl font-bold mb-2">Request a Finance Quote</h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-8">No obligation. Get a personalised offer from
+                    our finance team within 24 hours.</p>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Full Name</label>
+                            <input
+                                class="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-lg focus:border-primary focus:ring-primary py-3"
+                                placeholder="John Doe" type="text" />
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Phone Number</label>
+                            <input
+                                class="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-lg focus:border-primary focus:ring-primary py-3"
+                                placeholder="+1 (555) 000-0000" type="tel" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Email Address</label>
+                        <input
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-lg focus:border-primary focus:ring-primary py-3"
+                            placeholder="john@example.com" type="email" />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Vehicle of Interest</label>
+                        <input
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-lg focus:border-primary focus:ring-primary py-3"
+                            placeholder="e.g. 2024 Land Cruiser 300" type="text" />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Finance Type</label>
+                        <select
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-transparent rounded-lg focus:border-primary focus:ring-primary py-3">
+                            <option>Personal Contract Purchase (PCP)</option>
+                            <option>Hire Purchase (HP)</option>
+                            <option>Lease Finance</option>
+                            <option>Not Sure — Advise Me</option>
+                        </select>
+                    </div>
+                    <button
+                        class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 transition-all uppercase tracking-wider">
+                        Submit Finance Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white dark:bg-slate-900/50 py-20 border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+                <div class="h-1 w-20 bg-primary rounded-full mx-auto"></div>
+            </div>
+            <div class="space-y-4" id="faq-list">
+                <div class="faq-item border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-btn w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        onclick="toggleFaq(this)">
+                        <span>What credit score do I need to qualify for finance?</span>
+                        <span class="material-icons transition-transform flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        We work with a wide panel of lenders and can accommodate most credit profiles, including those
+                        with limited credit history. Our specialists will find the best available option for your
+                        situation. A soft credit check is performed initially to avoid impacting your score.
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-btn w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        onclick="toggleFaq(this)">
+                        <span>Can I finance a vehicle if I'm self-employed?</span>
+                        <span class="material-icons transition-transform flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Absolutely. We have specific lender partners experienced with self-employed applicants. You'll
+                        typically need 1–2 years of accounts or tax returns, but our advisors will walk you through the
+                        exact requirements based on your circumstances.
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-btn w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        onclick="toggleFaq(this)">
+                        <span>Can I make early repayments or settle the loan early?</span>
+                        <span class="material-icons transition-transform flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Yes, early settlement is available on all our finance products. There may be a small early
+                        settlement charge depending on your lender and product type, which will be clearly disclosed in
+                        your agreement. Many of our lenders allow overpayments at no additional cost.
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-btn w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        onclick="toggleFaq(this)">
+                        <span>Is international or overseas finance available?</span>
+                        <span class="material-icons transition-transform flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Yes. We serve clients across the UAE, UK, Europe, and beyond. Our finance team are experienced
+                        in cross-border transactions and can advise on the best structure based on your country of
+                        residence and the vehicle's destination.
+                    </div>
+                </div>
+                <div class="faq-item border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+                    <button
+                        class="faq-btn w-full flex justify-between items-center p-6 text-left font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                        onclick="toggleFaq(this)">
+                        <span>How long does the approval process take?</span>
+                        <span class="material-icons transition-transform flex-shrink-0">expand_more</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Our standard approval process takes as little as 2–4 hours on weekdays, with a guaranteed
+                        response within 24 hours. Once approved, documentation can be completed digitally so you can
+                        take delivery as quickly as possible.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-background-dark border-t border-slate-100 dark:border-slate-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary flex items-center justify-center rounded">
+                            <span class="material-icons text-white text-base">directions_car</span>
+                        </div>
+                        <span class="text-lg font-bold tracking-tight uppercase">Car Sale Premium<span class="text-primary">
+                                Select</span></span>
+                    </div>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">Setting the standard in
+                        high-end vehicle sales and acquisition.</p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-all hover:border-primary"
+                            href="#">
+                            <span class="material-icons text-sm">facebook</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-all hover:border-primary"
+                            href="#">
+                            <span class="material-icons text-sm">alternate_email</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-all hover:border-primary"
+                            href="#">
+                            <span class="material-icons text-sm">video_library</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Inventory</h4>
+                    <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="inventory.html">Luxury SUVs</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Exotic Sports Cars</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Executive Sedans</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Special Imports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a class="hover:text-primary transition-colors" href="about.html">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="finance.html">Financing Options</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="sellVehicle.html">Sell Your
+                                Vehicle</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Newsletter</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Stay updated with our latest luxury
+                        arrivals.</p>
+                    <div class="flex">
+                        <input
+                            class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-l-lg focus:ring-primary focus:border-primary py-2.5"
+                            placeholder="Email Address" type="email" />
+                        <button class="bg-primary text-white px-4 rounded-r-lg hover:bg-primary/90">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-slate-400">© 2024 Car Sale Premium. All Rights Reserved.</p>
+                <div class="flex gap-6 text-xs text-slate-400 uppercase font-bold">
+                    <a class="hover:text-primary" href="#">Terms</a>
+                    <a class="hover:text-primary" href="#">Sitemap</a>
+                    <a class="hover:text-primary" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openMobileMenu() {
+            document.getElementById('mobile-drawer').classList.remove('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-drawer').classList.add('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // FAQ accordion
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.material-icons');
+            const isOpen = !answer.classList.contains('hidden');
+            // Close all
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+            document.querySelectorAll('.faq-btn .material-icons').forEach(i => i.style.transform = '');
+            if (!isOpen) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Loan Calculator
+        function updateCalc() {
+            const price = parseInt(document.getElementById('price-slider').value);
+            const depositPct = parseInt(document.getElementById('deposit-slider').value);
+            const term = parseInt(document.getElementById('term-slider').value);
+            const rate = parseFloat(document.getElementById('rate-slider').value);
+
+            const deposit = Math.round(price * depositPct / 100);
+            const loan = price - deposit;
+            const monthlyRate = rate / 100 / 12;
+            const monthly = monthlyRate === 0
+                ? loan / term
+                : loan * monthlyRate / (1 - Math.pow(1 + monthlyRate, -term));
+            const totalRepayable = monthly * term;
+            const totalInterest = totalRepayable - loan;
+
+            document.getElementById('price-display').textContent = '$' + price.toLocaleString();
+            document.getElementById('deposit-display').textContent = '$' + deposit.toLocaleString() + ' (' + depositPct + '%)';
+            document.getElementById('term-display').textContent = term + ' months';
+            document.getElementById('rate-display').textContent = rate.toFixed(1) + '%';
+            document.getElementById('monthly-payment').textContent = '$' + Math.round(monthly).toLocaleString();
+            document.getElementById('loan-amount').textContent = '$' + loan.toLocaleString();
+            document.getElementById('total-interest').textContent = '$' + Math.round(totalInterest).toLocaleString();
+            document.getElementById('total-repayable').textContent = '$' + Math.round(totalRepayable).toLocaleString();
+        }
+        updateCalc();
+    </script>
+</body>
+
+</html>

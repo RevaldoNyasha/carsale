@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sell Your Vehicle | Car Sale Premium</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+
+        .step-active {
+            color: #ea2a33;
+            border-bottom: 2px solid #ea2a33;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="closeMobileMenu()"></div>
+    <!-- Mobile Sidebar Drawer -->
+    <aside id="mobile-drawer"
+        class="fixed top-0 left-0 h-full w-72 bg-white dark:bg-background-dark z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="flex items-center justify-between p-5 border-b border-primary/10">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-primary p-1 rounded-lg">
+                    <span class="material-icons text-white text-xl">directions_car</span>
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight uppercase leading-none">Car Sale Premium</span>
+                    <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                </div>
+            </a>
+            <button onclick="closeMobileMenu()"
+                class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons text-slate-600 dark:text-slate-300">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col p-5 gap-1 flex-1">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="inventory.html">
+                <span class="material-icons text-sm">garage</span>Inventory
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="sellVehicle.html">
+                <span class="material-icons text-sm">sell</span>Sell Your Car
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="finance.html">
+                <span class="material-icons text-sm">account_balance</span>Financing
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="about.html">
+                <span class="material-icons text-sm">info</span>About Us
+            </a>
+        </nav>
+        <div class="p-5 border-t border-primary/10">
+            <button
+                class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                <span class="material-icons text-sm">calendar_month</span>
+                <span>Book Viewing</span>
+            </button>
+        </div>
+    </aside>
+    <!-- Navigation -->
+    <header
+        class="sticky top-0 z-30 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-primary/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="bg-primary p-1 rounded-lg">
+                        <span class="material-icons text-white text-xl">directions_car</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-xl font-bold tracking-tight uppercase leading-none">Car Sale Premium
+                            Select</h1>
+                        <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="inventory.html">Inventory</a>
+                    <a class="hover:text-primary transition-colors" href="sellVehicle.html">Sell Your Car</a>
+                    <a class="hover:text-primary transition-colors" href="finance.html">Financing</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About Us</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        <span class="material-icons text-sm">calendar_month</span>
+                        <span>Book Viewing</span>
+                    </button>
+                    <!-- Mobile menu button -->
+                    <button onclick="openMobileMenu()"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Open menu">
+                        <span class="material-icons text-slate-700 dark:text-slate-200">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function openMobileMenu() {
+            document.getElementById('mobile-drawer').classList.remove('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-drawer').classList.add('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+    <!-- Hero Section -->
+    <header class="relative py-16 bg-white dark:bg-zinc-900 border-b border-zinc-100 dark:border-zinc-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-4">
+                Get an Expert Valuation for Your <span class="text-primary italic">Premium</span> Vehicle
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-zinc-600 dark:text-zinc-400">
+                Specializing in luxury cruisers, high-end SUVs, and premium off-roaders. Get a fair, market-leading
+                offer in 24 hours.
+            </p>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Left Column: Multi-step Form -->
+            <div class="lg:col-span-8">
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-xl shadow-sm border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+                    <!-- Form Header / Stepper -->
+                    <div class="flex items-center border-b border-zinc-100 dark:border-zinc-800">
+                        <div class="flex-1 py-4 px-6 text-center border-b-2 border-primary bg-primary/5">
+                            <span class="text-xs font-bold text-primary uppercase block">Step 1</span>
+                            <span class="text-sm font-semibold">Vehicle Details</span>
+                        </div>
+                        <div class="flex-1 py-4 px-6 text-center border-b-2 border-transparent opacity-50">
+                            <span class="text-xs font-bold text-zinc-400 uppercase block">Step 2</span>
+                            <span class="text-sm font-semibold">Condition &amp; Photos</span>
+                        </div>
+                        <div class="flex-1 py-4 px-6 text-center border-b-2 border-transparent opacity-50">
+                            <span class="text-xs font-bold text-zinc-400 uppercase block">Step 3</span>
+                            <span class="text-sm font-semibold">Contact Info</span>
+                        </div>
+                    </div>
+                    <form class="p-8 space-y-8">
+                        <!-- Section: Car Details -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Vehicle
+                                    Make</label>
+                                <select
+                                    class="w-full bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-primary focus:border-primary">
+                                    <option>Select Make</option>
+                                    <option>Toyota</option>
+                                    <option>Lexus</option>
+                                    <option>Land Rover</option>
+                                    <option>Mercedes-Benz</option>
+                                    <option>Porsche</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Model</label>
+                                <input
+                                    class="w-full bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-primary focus:border-primary"
+                                    placeholder="e.g. Land Cruiser 300 Series" type="text" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Year</label>
+                                <input
+                                    class="w-full bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-primary focus:border-primary"
+                                    placeholder="YYYY" type="number" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Mileage
+                                    (km)</label>
+                                <input
+                                    class="w-full bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 rounded-lg focus:ring-primary focus:border-primary"
+                                    placeholder="e.g. 45,000" type="number" />
+                            </div>
+                        </div>
+                        <!-- Section: Photo Upload (Mockup) -->
+                        <div class="space-y-4">
+                            <label class="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Vehicle Photos
+                                (Optional for quick quote)</label>
+                            <div
+                                class="border-2 border-dashed border-zinc-300 dark:border-zinc-700 rounded-xl p-10 text-center hover:border-primary transition-colors cursor-pointer bg-zinc-50 dark:bg-zinc-800/50">
+                                <span class="material-icons text-4xl text-zinc-400 mb-2">add_a_photo</span>
+                                <p class="text-sm text-zinc-600 dark:text-zinc-400">Drag and drop photos here or <span
+                                        class="text-primary font-bold">browse files</span></p>
+                                <p class="text-xs text-zinc-400 mt-2 italic">Provide front, side, and interior shots for
+                                    a more accurate valuation.</p>
+                            </div>
+                            <div class="grid grid-cols-4 gap-4">
+                                <div
+                                    class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-200 dark:border-zinc-700">
+                                    <span class="text-[10px] uppercase font-bold text-zinc-400">Front Profile</span>
+                                </div>
+                                <div
+                                    class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-200 dark:border-zinc-700">
+                                    <span class="text-[10px] uppercase font-bold text-zinc-400">Rear Profile</span>
+                                </div>
+                                <div
+                                    class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-200 dark:border-zinc-700">
+                                    <span class="text-[10px] uppercase font-bold text-zinc-400">Interior</span>
+                                </div>
+                                <div
+                                    class="aspect-square bg-zinc-100 dark:bg-zinc-800 rounded-lg flex items-center justify-center border border-zinc-200 dark:border-zinc-700">
+                                    <span class="text-[10px] uppercase font-bold text-zinc-400">Dashboard</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="pt-6 border-t border-zinc-100 dark:border-zinc-800 flex justify-between items-center">
+                            <p class="text-sm text-zinc-500">1 of 3 Steps Completed</p>
+                            <button
+                                class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-red-700 transition-all shadow-lg shadow-primary/20 flex items-center gap-2"
+                                type="button">
+                                Continue Request <span class="material-icons text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Trust Badges -->
+                <div class="mt-8 grid grid-cols-3 gap-4">
+                    <div class="flex items-center gap-3 p-4 bg-white/50 dark:bg-zinc-900/50 rounded-lg">
+                        <span class="material-icons text-primary">verified_user</span>
+                        <span class="text-xs font-bold uppercase tracking-tight">Guaranteed Offers</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white/50 dark:bg-zinc-900/50 rounded-lg">
+                        <span class="material-icons text-primary">speed</span>
+                        <span class="text-xs font-bold uppercase tracking-tight">24h Response</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white/50 dark:bg-zinc-900/50 rounded-lg">
+                        <span class="material-icons text-primary">payments</span>
+                        <span class="text-xs font-bold uppercase tracking-tight">Direct Payment</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Sidebar -->
+            <div class="lg:col-span-4 space-y-6">
+                <!-- Process Card -->
+                <div class="bg-zinc-900 text-white rounded-xl p-8 space-y-6">
+                    <h3 class="text-xl font-bold">The Car Sale Premium Process</h3>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-sm">
+                                1</div>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Submit Details</h4>
+                                <p class="text-xs text-zinc-400 leading-relaxed">Fill out our simple form with your
+                                    vehicle's specifications and current condition.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-sm">
+                                2</div>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Expert Review</h4>
+                                <p class="text-xs text-zinc-400 leading-relaxed">Our specialists analyze current market
+                                    trends to provide a competitive valuation.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-sm">
+                                3</div>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Guaranteed Offer</h4>
+                                <p class="text-xs text-zinc-400 leading-relaxed">Receive a firm offer. We handle all
+                                    paperwork and arrange instant payment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Featured Sale / Testimonial -->
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden">
+                    <img alt="Toyota Land Cruiser" class="w-full h-48 object-cover"
+                        data-alt="Modern white Toyota Land Cruiser SUV on a clean street"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUhgXMTyOoAd1VER3jO76U0xfOl2xDXdXM6tKNp1BEhLmnknKAFAMF8gE3fAaTgp9Nx-pBg1OJuGa-EEhZRJ-RnxhbBTWz2tV4LNutjSVKgyUXWVmNgkK080DGA2oHECmt-X7sfq0VD3G_y1qVpha8l2aQ0w0lbEtp1NnZt-ZfO4FNWmi1EOKefiwP6F9rwfD-My1ouOzeabbAlsrxSZP79gA0l7j3lYF1qYWPdcbAJdn71njXebvP4tgZJPU6W928oGTi_RZIV3A" />
+                    <div class="p-6">
+                        <div class="flex items-center gap-1 mb-2">
+                            <span class="material-icons text-primary text-sm">star</span>
+                            <span class="material-icons text-primary text-sm">star</span>
+                            <span class="material-icons text-primary text-sm">star</span>
+                            <span class="material-icons text-primary text-sm">star</span>
+                            <span class="material-icons text-primary text-sm">star</span>
+                        </div>
+                        <h4 class="font-bold text-zinc-900 dark:text-white mb-2 italic">"Sold my Land Cruiser in 48
+                            hours."</h4>
+                        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-4 italic">"Professional service from start
+                            to finish. The price offered was significantly better than local trade-ins."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">
+                                RJ</div>
+                            <span class="text-xs font-bold text-zinc-800 dark:text-zinc-200">Robert Jenkins,
+                                Dubai</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Support Card -->
+                <div
+                    class="bg-zinc-50 dark:bg-zinc-800/30 border border-zinc-200 dark:border-zinc-700 rounded-xl p-6 text-center">
+                    <h4 class="text-sm font-bold mb-2">Need immediate assistance?</h4>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 mb-4">Our sales team is available Mon-Fri, 9am -
+                        6pm.</p>
+                    <a class="text-primary font-bold hover:underline" href="tel:+15550123456">1-800-STABLE-SELECT</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-primary p-1.5 rounded">
+                            <span class="material-icons text-white text-lg">directions_car</span>
+                        </div>
+                        <span class="text-lg font-bold tracking-tight uppercase">Car Sale Premium <span
+                                class="text-primary">Select</span></span>
+                    </div>
+                    <p class="text-sm text-zinc-500 dark:text-zinc-400">Premium vehicle sales and acquisitions.
+                        Redefining the high-end automotive experience.</p>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-sm font-bold uppercase tracking-widest text-zinc-900 dark:text-white">Quick Links
+                    </h5>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+                        <li><a class="hover:text-primary transition-colors" href="inventory.html">Current Inventory</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="sellVehicle.html">Sell Your Car</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-sm font-bold uppercase tracking-widest text-zinc-900 dark:text-white">Our Locations
+                    </h5>
+                    <ul class="text-sm text-zinc-600 dark:text-zinc-400 space-y-2">
+                        <li>Dubai Design District, UAE</li>
+                        <li>Mayfair, London, UK</li>
+                        <li>Beverly Hills, CA, USA</li>
+                    </ul>
+                </div>
+                <div class="space-y-4">
+                    <h5 class="text-sm font-bold uppercase tracking-widest text-zinc-900 dark:text-white">Newsletter
+                    </h5>
+                    <p class="text-xs text-zinc-500 dark:text-zinc-400">Join our mailing list for exclusive stock
+                        alerts.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="flex-1 bg-zinc-50 dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 rounded-lg text-xs focus:ring-primary focus:border-primary"
+                            placeholder="Email address" type="email" />
+                        <button class="bg-primary text-white p-2 rounded-lg hover:bg-red-700 transition-colors">
+                            <span class="material-icons text-sm">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-12 mt-12 border-t border-zinc-100 dark:border-zinc-800 text-center text-xs text-zinc-500 dark:text-zinc-600">
+                © 2024 Car Sale Premium. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

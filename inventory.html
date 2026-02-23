@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Vehicle Inventory Showroom | Car Sale Premium</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ea2a33",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased min-h-screen">
+    <!-- Mobile Sidebar Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="closeMobileMenu()"></div>
+    <!-- Mobile Sidebar Drawer -->
+    <aside id="mobile-drawer"
+        class="fixed top-0 left-0 h-full w-72 bg-white dark:bg-background-dark z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="flex items-center justify-between p-5 border-b border-primary/10">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-primary p-1 rounded-lg">
+                    <span class="material-icons text-white text-xl">directions_car</span>
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight uppercase leading-none">Car Sale Premium</span>
+                    <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                </div>
+            </a>
+            <button onclick="closeMobileMenu()"
+                class="p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons text-slate-600 dark:text-slate-300">close</span>
+            </button>
+        </div>
+        <nav class="flex flex-col p-5 gap-1 flex-1">
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="inventory.html">
+                <span class="material-icons text-sm">garage</span>Inventory
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="sellVehicle.html">
+                <span class="material-icons text-sm">sell</span>Sell Your Car
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="finance.html">
+                <span class="material-icons text-sm">account_balance</span>Financing
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary/5 hover:text-primary font-medium transition-colors"
+                href="about.html">
+                <span class="material-icons text-sm">info</span>About Us
+            </a>
+        </nav>
+        <div class="p-5 border-t border-primary/10">
+            <button
+                class="w-full flex items-center justify-center gap-2 px-5 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                <span class="material-icons text-sm">calendar_month</span>
+                <span>Book Viewing</span>
+            </button>
+        </div>
+    </aside>
+    <!-- Navigation Header -->
+    <header
+        class="sticky top-0 z-30 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-primary/10 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="bg-primary p-1 rounded-lg">
+                        <span class="material-icons text-white text-xl">directions_car</span>
+                    </div>
+                    <div>
+                        <h1 class="text-base md:text-xl font-bold tracking-tight uppercase leading-none">Car Sale Premium
+                            Select</h1>
+                        <p class="text-[10px] tracking-[0.2em] text-primary font-bold uppercase">Premium Auto Dealer</p>
+                    </div>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a class="hover:text-primary transition-colors" href="inventory.html">Inventory</a>
+                    <a class="hover:text-primary transition-colors" href="sellVehicle.html">Sell Your Car</a>
+                    <a class="hover:text-primary transition-colors" href="finance.html">Financing</a>
+                    <a class="hover:text-primary transition-colors" href="about.html">About Us</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button
+                        class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                        <span class="material-icons text-sm">calendar_month</span>
+                        <span>Book Viewing</span>
+                    </button>
+                    <!-- Mobile menu button -->
+                    <button onclick="openMobileMenu()"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                        aria-label="Open menu">
+                        <span class="material-icons text-slate-700 dark:text-slate-200">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        function openMobileMenu() {
+            document.getElementById('mobile-drawer').classList.remove('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-drawer').classList.add('-translate-x-full');
+            document.getElementById('mobile-overlay').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    </script>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-72 flex-shrink-0">
+                <div class="sticky top-28 space-y-6">
+                    <div
+                        class="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-slate-200 dark:border-white/5 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="font-bold text-lg">Filters</h2>
+                            <button class="text-xs text-primary font-semibold hover:underline">Clear All</button>
+                        </div>
+                        <!-- Search -->
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-2">Search</label>
+                            <div class="relative">
+                                <input
+                                    class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-zinc-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20"
+                                    placeholder="Model, keyword..." type="text" />
+                                <span
+                                    class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                            </div>
+                        </div>
+                        <!-- Filter Sections -->
+                        <div class="space-y-6">
+                            <!-- Price Range -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-3">Price Range</label>
+                                <div class="space-y-4">
+                                    <input class="w-full accent-primary" type="range" />
+                                    <div class="flex justify-between text-sm font-medium">
+                                        <span>$40k</span>
+                                        <span>$250k+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Make -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-3">Make</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input checked=""
+                                            class="rounded border-slate-300 text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                        <span class="text-sm group-hover:text-primary">Toyota</span>
+                                        <span class="ml-auto text-xs text-slate-400">12</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input class="rounded border-slate-300 text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                        <span class="text-sm group-hover:text-primary">Land Rover</span>
+                                        <span class="ml-auto text-xs text-slate-400">8</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input class="rounded border-slate-300 text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                        <span class="text-sm group-hover:text-primary">Mercedes-Benz</span>
+                                        <span class="ml-auto text-xs text-slate-400">15</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 cursor-pointer group">
+                                        <input class="rounded border-slate-300 text-primary focus:ring-primary"
+                                            type="checkbox" />
+                                        <span class="text-sm group-hover:text-primary">Porsche</span>
+                                        <span class="ml-auto text-xs text-slate-400">6</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Year -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-3">Year</label>
+                                <select
+                                    class="w-full bg-slate-50 dark:bg-zinc-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/20">
+                                    <option>2020 - 2024</option>
+                                    <option>2015 - 2019</option>
+                                    <option>Classic</option>
+                                </select>
+                            </div>
+                            <!-- Fuel Type -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-3">Fuel Type</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button
+                                        class="py-2 px-3 text-xs font-medium border border-primary bg-primary/5 text-primary rounded-lg">Diesel</button>
+                                    <button
+                                        class="py-2 px-3 text-xs font-medium border border-slate-200 dark:border-white/10 hover:border-primary rounded-lg transition-colors">Petrol</button>
+                                    <button
+                                        class="py-2 px-3 text-xs font-medium border border-slate-200 dark:border-white/10 hover:border-primary rounded-lg transition-colors">Hybrid</button>
+                                    <button
+                                        class="py-2 px-3 text-xs font-medium border border-slate-200 dark:border-white/10 hover:border-primary rounded-lg transition-colors">Electric</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Inventory Area -->
+            <div class="flex-1">
+                <!-- Top Bar -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold">Premium Inventory</h2>
+                        <p class="text-slate-500 text-sm">Showing 48 exclusive vehicles</p>
+                    </div>
+                    <div class="flex items-center gap-3 w-full sm:w-auto">
+                        <span class="text-sm font-medium text-slate-500 hidden sm:inline">Sort by:</span>
+                        <select
+                            class="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-lg text-sm px-4 py-2 focus:ring-primary">
+                            <option>Newest Arrivals</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                            <option>Mileage: Lowest</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Vehicle Card 1 -->
+                    <div
+                        class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-white/5 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="relative aspect-[16/10] overflow-hidden">
+                            <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Modern luxury white Toyota Land Cruiser 300 front view"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbCfrKlSkCP2bmaBl1oEc3X6dQyl2Rd_sCGNuPTqotxBy-HiI3ATZViDZS7OO5OpNyU7NanoHCBvKehjpZPFPUGEsFyXFDzZPf340jrEk7OqH1sen00QLGyad_D_uBgzOSVvePsqYs0wR6S-_M0DNHN_gOfy_jvPIg2SNmhjy-6ds8aMTPGoOGqFDlJgCMAVmtzFd617WlmhP8MvqAeqi0C_rmYM3pPeTDNXtIykhFLyHYyPz2ucSwkA7Sqgx7C2r3-dSwK54Gj9g" />
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow-lg">New
+                                    Arrival</span>
+                            </div>
+                            <button
+                                class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-800 hover:text-primary transition-colors shadow-sm">
+                                <span class="material-icons text-xl">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    2024 Toyota Land Cruiser 300 GR Sport</h3>
+                            </div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white mb-4">$142,500</p>
+                            <div class="grid grid-cols-3 gap-2 border-t border-slate-100 dark:border-white/5 pt-4 mb-6">
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">speed</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Mileage</span>
+                                    <span class="text-xs font-semibold">1,250 KM</span>
+                                </div>
+                                <div class="flex flex-col items-center border-x border-slate-100 dark:border-white/5">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">settings</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Engine</span>
+                                    <span class="text-xs font-semibold">3.3L V6</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">local_gas_station</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Fuel</span>
+                                    <span class="text-xs font-semibold">Diesel</span>
+                                </div>
+                            </div>
+                            <a href="vehiclePage..html"
+                                class="w-full py-3 bg-slate-900 dark:bg-primary text-white font-bold rounded-lg hover:bg-primary dark:hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <span class="material-icons text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Vehicle Card 2 -->
+                    <div
+                        class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-white/5 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="relative aspect-[16/10] overflow-hidden">
+                            <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Black luxury SUV Land Rover Defender parked outdoors"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBklSZKddtthpyeqKNDnNJCJ1DGv6FpjPAdDD9e3Xc0kv-VT6vsmI9QUQip4Q6l_s7al0YoNnSxMHitpN6nIpwk8DHHe9K_3G_tcG3uy3OMKbc-CQeZqI1WxP4UgwVyT2Bj2K-2m2ssp5ON8E186lMLe2BkUgZyUiU0CO066NQnWWFKv2EH4L9dlqAFdhOmaihZEF1nPWOIbNquoL1897QcbV1swYhsXnA9SbZPq7Ie2clDA5EzBT_1femeq7OxiyjRGofAuDHFn7k" />
+                            <button
+                                class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-800 hover:text-primary transition-colors shadow-sm">
+                                <span class="material-icons text-xl text-primary">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    2023 Land Rover Defender 110 V8</h3>
+                            </div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white mb-4">$118,900</p>
+                            <div class="grid grid-cols-3 gap-2 border-t border-slate-100 dark:border-white/5 pt-4 mb-6">
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">speed</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Mileage</span>
+                                    <span class="text-xs font-semibold">12,400 KM</span>
+                                </div>
+                                <div class="flex flex-col items-center border-x border-slate-100 dark:border-white/5">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">settings</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Engine</span>
+                                    <span class="text-xs font-semibold">5.0L V8</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">local_gas_station</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Fuel</span>
+                                    <span class="text-xs font-semibold">Petrol</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-slate-900 dark:bg-primary text-white font-bold rounded-lg hover:bg-primary dark:hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <span class="material-icons text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Vehicle Card 3 -->
+                    <div
+                        class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-white/5 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="relative aspect-[16/10] overflow-hidden">
+                            <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Blue BMW sedan parked in front of modern architecture"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1C0UwtiyODKFwSKtNZqMFE7_azU27uiCkrjJkAZWHq5HF1E9D6P25p6h8pjUOmWvDlyrZPbgFRcB3w338slkcyqNVFcGOivkdtMBlnmwB48xD4-fgDM8LLMaXvuLbrNNkBgMwB5KG3VbDV7-wzS5uVa5kSe8G9JGbOrj1uO8Fh_a8ywwiCdX1_FH5-8WrN1Y2F4Y9WvS2XzbDFJo1G5WCIiXilVe9unogBGFdNCioF0CxF9HTT56Rb3x2K63GBbE2C1nFgMfwHH8" />
+                            <button
+                                class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-800 hover:text-primary transition-colors shadow-sm">
+                                <span class="material-icons text-xl">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    2022 Mercedes-Benz G 63 AMG</h3>
+                            </div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white mb-4">$189,000</p>
+                            <div class="grid grid-cols-3 gap-2 border-t border-slate-100 dark:border-white/5 pt-4 mb-6">
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">speed</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Mileage</span>
+                                    <span class="text-xs font-semibold">15,600 KM</span>
+                                </div>
+                                <div class="flex flex-col items-center border-x border-slate-100 dark:border-white/5">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">settings</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Engine</span>
+                                    <span class="text-xs font-semibold">4.0L V8</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">local_gas_station</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Fuel</span>
+                                    <span class="text-xs font-semibold">Petrol</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-slate-900 dark:bg-primary text-white font-bold rounded-lg hover:bg-primary dark:hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <span class="material-icons text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Additional vehicles row -->
+                    <!-- Repeat logic for demo purposes -->
+                    <div
+                        class="group bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-slate-200 dark:border-white/5 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="relative aspect-[16/10] overflow-hidden">
+                            <img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Sleek white Porsche 911 on open mountain road"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLfHpaS8xzO-BLS6XMkLF423kFh8a-KKGB5B51xl5J9TpsSd3Q2SGxjYnDU24VjBlMntlSRshSMAAGnk_NPxUt0i_vY2-WMrXa7LycVbgK06qKvpe6BtgFkObNj-M8s1o3hkF6XRVBOduKskr0SIdJy-iwC0B8Utp-j2Q9cr4LtgT5XtPvEFng0x4Bj4s1uc9rhBLlebpZKGZnCTCCQN7xTfl-zKVzYIAQTObU94bgzmWZMZJboZtw5FGw39lRbcC2ETJ59qk8VPo" />
+                            <button
+                                class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-slate-800 hover:text-primary transition-colors shadow-sm">
+                                <span class="material-icons text-xl">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    2021 Porsche 911 Carrera S</h3>
+                            </div>
+                            <p class="text-2xl font-black text-slate-900 dark:text-white mb-4">$154,200</p>
+                            <div class="grid grid-cols-3 gap-2 border-t border-slate-100 dark:border-white/5 pt-4 mb-6">
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">speed</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Mileage</span>
+                                    <span class="text-xs font-semibold">8,900 KM</span>
+                                </div>
+                                <div class="flex flex-col items-center border-x border-slate-100 dark:border-white/5">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">settings</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Engine</span>
+                                    <span class="text-xs font-semibold">3.0L Flat-6</span>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="material-icons text-primary/60 text-lg mb-1">local_gas_station</span>
+                                    <span class="text-[10px] font-bold uppercase text-slate-400">Fuel</span>
+                                    <span class="text-xs font-semibold">Petrol</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-slate-900 dark:bg-primary text-white font-bold rounded-lg hover:bg-primary dark:hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                <span>View Details</span>
+                                <span class="material-icons text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="mt-12 flex justify-center items-center gap-2">
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:border-primary transition-colors">
+                        <span class="material-icons text-sm">chevron_left</span>
+                    </button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:border-primary transition-colors">2</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:border-primary transition-colors">3</button>
+                    <span class="px-2 text-slate-400">...</span>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:border-primary transition-colors">8</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 dark:border-white/10 hover:border-primary transition-colors">
+                        <span class="material-icons text-sm">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-zinc-950 mt-20 border-t border-slate-200 dark:border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="bg-primary p-1 rounded">
+                            <span class="material-icons text-white text-xl">directions_car</span>
+                        </div>
+                        <h2 class="font-bold text-lg uppercase tracking-tight">Car Sale Premium</h2>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">The premier destination for high-end, luxury,
+                        and premium performance vehicles. Hand-selected quality since 1998.</p>
+                    <div class="flex gap-4">
+                        <a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-icons text-sm">facebook</span></a>
+                        <a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-icons text-sm">camera_alt</span></a>
+                        <a class="w-8 h-8 rounded-full bg-slate-100 dark:bg-zinc-800 flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-icons text-sm">alternate_email</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm uppercase tracking-widest mb-6">Quick Links</h3>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary transition-colors" href="inventory.html">Browse Inventory</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Service Center</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Finance Calculator</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm uppercase tracking-widest mb-6">Showroom Hours</h3>
+                    <ul class="space-y-3 text-sm text-slate-500">
+                        <li class="flex justify-between"><span>Mon - Fri</span> <span
+                                class="text-slate-900 dark:text-white font-medium">9AM - 7PM</span></li>
+                        <li class="flex justify-between"><span>Saturday</span> <span
+                                class="text-slate-900 dark:text-white font-medium">10AM - 5PM</span></li>
+                        <li class="flex justify-between"><span>Sunday</span> <span
+                                class="text-slate-900 dark:text-white font-medium text-primary">By Appointment</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm uppercase tracking-widest mb-6">Newsletter</h3>
+                    <p class="text-sm text-slate-500 mb-4">Get notified about new premium arrivals.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="flex-1 bg-slate-100 dark:bg-zinc-800 border-none rounded-lg text-sm px-4 focus:ring-primary"
+                            placeholder="Email address" type="email" />
+                        <button class="bg-primary text-white p-2 rounded-lg hover:bg-primary/90 transition-all">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-100 dark:border-white/5 mt-12 pt-8 text-center text-xs text-slate-400">
+                © 2024 Car Sale Premium Premium Vehicles. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
